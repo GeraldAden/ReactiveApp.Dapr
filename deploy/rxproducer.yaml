@@ -1,0 +1,23 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: rx-producer
+  labels:
+    app: rx-producer
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rx-producer
+  template:
+    metadata:
+      labels:
+        app: rx-producer
+      annotations:
+        dapr.io/enabled: "true"
+        dapr.io/app-id: "patientservice"
+        dapr.io/app-port: "3000"
+    spec:
+      containers:
+      - name: rx-producer
+        image: docker.artifactory.surescripts.local/gaden/innovation-days/rxproducer:dapr-0.1

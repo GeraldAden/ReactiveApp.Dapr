@@ -1,0 +1,13 @@
+{
+  "profiles": {
+    "RxProducer": {
+      "commandName": "Executable",
+      "executablePath": "C:\\dapr\\dapr.exe",
+      "commandLineArgs": "run --app-id rxproducer --components-path ./components --dapr-http-port 3500 -- dotnet run",
+      "workingDirectory": "C:\\development\\surescripts\\sandbox\\InnovationDays\\2020October\\reactiveapps.dapr\\RxProducer"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}

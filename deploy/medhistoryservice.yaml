@@ -1,0 +1,23 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: medhistory-service
+  labels:
+    app: medhistory-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: medhistory-service
+  template:
+    metadata:
+      labels:
+        app: medhistory-service
+      annotations:
+        dapr.io/enabled: "true"
+        dapr.io/app-id: "patientservice"
+        dapr.io/app-port: "3000"
+    spec:
+      containers:
+      - name: medhistory-service
+        image: docker.artifactory.surescripts.local/gaden/innovation-days/medhistoryservice:dapr-0.1

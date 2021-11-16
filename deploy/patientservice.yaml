@@ -1,0 +1,23 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: patient-service
+  labels:
+    app: patient-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: patient-service
+  template:
+    metadata:
+      labels:
+        app: patient-service
+      annotations:
+        dapr.io/enabled: "true"
+        dapr.io/app-id: "patientservice"
+        dapr.io/app-port: "3000"
+    spec:
+      containers:
+      - name: patient-service
+        image: docker.artifactory.surescripts.local/gaden/innovation-days/patientservice:dapr-0.1

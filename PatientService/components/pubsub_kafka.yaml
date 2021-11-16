@@ -1,0 +1,11 @@
+apiVersion: dapr.io/v1alpha1
+kind: Component
+metadata:
+  name: pubsub
+spec:
+  type: pubsub.kafka
+  metadata:
+  - name: brokers
+    value: mdl-kbrk01.surescripts-dev.qa:9092,mdl-kbrk02.surescripts-dev.qa:9092,mdl-kbrk03.surescripts-dev.qa:9092
+  - name: authRequired
+    value: "false"
